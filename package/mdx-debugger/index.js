@@ -54,7 +54,7 @@ export function withDebugger(compile) {
     const hash = LZString.compressToEncodedURIComponent(
       JSON.stringify(debuggerData)
     );
-    console.log("compiled", name, `http://localhost:3001/#${hash}`);
+    console.log("compiled", name, `https://mdxdebug.pomb.us/#${hash}`);
     return result;
   };
   return compileWithDebugger;
