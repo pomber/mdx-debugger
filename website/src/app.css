@@ -1,0 +1,59 @@
+html,
+body,
+#root {
+  height: 100%;
+  background-color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion {
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+  box-sizing: border-box;
+  width: fit-content;
+  max-height: 100%;
+  height: 100%;
+}
+
+.panel {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-width: 400px;
+  width: 400px;
+  display: flex;
+  transition: min-width 0.1s ease-in-out;
+}
+
+.panel[data-collapsed="true"] {
+  min-width: 0;
+  width: auto;
+}
+
+.panel-bar {
+  min-width: 2.5em;
+  background: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1em 0;
+  cursor: pointer;
+}
+
+.panel-bar-text {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+.panel-content {
+  padding: 1em;
+  overflow: overlay;
+}
+
+pre {
+  margin: 0;
+  padding: 0;
+}
