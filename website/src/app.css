@@ -51,6 +51,7 @@ body,
 .panel-content {
   padding: 1em;
   overflow: overlay;
+  flex: 1;
 }
 
 pre {
