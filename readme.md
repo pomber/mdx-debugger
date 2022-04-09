@@ -2,6 +2,8 @@
 
 A dev tool to inspect the ast transformations done remark and rehype plugins during MDX compilation.
 
+https://user-images.githubusercontent.com/1911623/162578700-360b2b4b-4d80-4c48-8a67-2db0c79190af.mp4
+
 ## Usage
 
 ```
@@ -38,6 +40,10 @@ const result = await debugCompile(file, {
   rehypePlugins: [...],
 });
 ```
+
+## Contribution
+
+PRs welcome.
 
 ## License
 
