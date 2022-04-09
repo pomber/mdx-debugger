@@ -1,7 +1,7 @@
 import "./app.css";
 import ReactJson from "react-json-view";
 import { useMemo, useState } from "react";
-import { fromHash } from "../../package/mdx-debugger/data";
+import { fromHash } from "../../package/data";
 
 function App() {
   const data = readHash();

@@ -2,7 +2,7 @@ import { compile } from "@mdx-js/mdx";
 import rehypeSlug from "rehype-slug";
 import remarkLicense from "remark-license";
 import remarkCapitalize from "remark-capitalize";
-import { withDebugger } from "../package/mdx-debugger/index.js";
+import { withDebugger } from "../package/index.js";
 
 const file = `
 # example
