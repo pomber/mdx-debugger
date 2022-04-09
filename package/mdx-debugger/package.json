@@ -1,3 +1,7 @@
 {
-  "name": "mdx-debugger"
+  "name": "mdx-debugger",
+  "type": "module",
+  "dependencies": {
+    "lz-string": "^1.4.4"
+  }
 }

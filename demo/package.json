@@ -1,0 +1,12 @@
+{
+  "name": "mdx-debugger-demo",
+  "type": "module",
+  "author": "pomber",
+  "dependencies": {
+    "@mdx-js/mdx": "^2.1.1",
+    "rehype-slug": "^5.0.1",
+    "remark-capitalize": "^1.1.0",
+    "remark-license": "^6.1.0"
+  },
+  "license": "MIT"
+}

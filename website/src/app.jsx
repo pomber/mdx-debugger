@@ -1,26 +1,37 @@
 import "./app.css";
-import LZString from "lz-string";
 import ReactJson from "react-json-view";
 import { useMemo, useState } from "react";
+import { fromHash } from "../../package/mdx-debugger/data";
 
 function App() {
   const data = readHash();
-  const { path, source, startingMDAST, steps } = data;
+  console.log(data);
+  const { path, source, remarkSteps, rehypeSteps, output } = data;
 
   // console.log("data", data);
 
   return (
     <div className="accordion">
       <Source source={source} path={path} />
-      <Tree tree={startingMDAST} name={`Remark #0`} />
-      {steps.map((step, i) => (
+      {remarkSteps.map((step, i) => (
         <Tree
           key={i}
-          tree={step.mdast}
-          name={`Remark #${i + 1}`}
+          tree={step.ast}
+          name={`Remark #${i}`}
+          color="#cccdf9"
           code={step.code}
         />
       ))}
+      {rehypeSteps.map((step, i) => (
+        <Tree
+          key={i}
+          tree={step.ast}
+          name={`Rehype #${i}`}
+          color="#b6e89d"
+          code={step.code}
+        />
+      ))}
+      <Source source={output} path="Output" />
     </div>
   );
 }
@@ -34,10 +45,10 @@ function Source({ source, path }) {
   );
 }
 
-function Tree({ tree, name, code }) {
+function Tree({ tree, name, code, color }) {
   const filtered = useMemo(() => filterTree(tree), [tree]);
   return (
-    <Panel name={name} tooltip={code}>
+    <Panel name={name} tooltip={code} color={color}>
       <ReactJson
         displayDataTypes={false}
         displayObjectSize={false}
@@ -59,7 +70,7 @@ function readHash() {
   }
 
   try {
-    return JSON.parse(LZString.decompressFromEncodedURIComponent(hash));
+    return fromHash(hash);
   } catch {
     return {};
   }
@@ -73,14 +84,14 @@ function filterTree(node) {
   return rest;
 }
 
-function Panel({ children, name, tooltip }) {
+function Panel({ children, name, tooltip, color }) {
   const [open, setOpen] = useState(true);
 
   const toggle = () => setOpen(!open);
 
   return (
     <div className="panel" data-collapsed={!open}>
-      <div className="panel-bar" onClick={toggle}>
+      <div className="panel-bar" onClick={toggle} style={{ background: color }}>
         <span className="panel-bar-text" title={tooltip}>
           {name}
         </span>
