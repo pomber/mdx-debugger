@@ -4,7 +4,8 @@ function defaultLog(filepath, url, hash) {
   console.log("compiled", filepath, url);
 }
 
-export function withDebugger(compile, { log = defaultLog, filter }) {
+export function withDebugger(compile, config) {
+  const { log = defaultLog, filter } = config || {};
   const compileWithDebugger = async (file, options) => {
     const name = file?.path ?? "unknown";
 
