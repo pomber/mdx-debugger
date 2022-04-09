@@ -16,10 +16,10 @@ Some text.
 
 const debugCompile = withDebugger(compile, {
   filter: (file) => file?.path.includes("test"),
-  log: (filepath, url) =>
-    console.log(
-      url.replace("https://mdxdebug.pomb.us/", "http://localhost:3000/")
-    ),
+  // log: (filepath, url) =>
+  //   console.log(
+  //     url.replace("https://mdxdebug.pomb.us/", "http://localhost:3000/")
+  //   ),
 });
 const result = await debugCompile(
   { value: file, path: "test.md" },
